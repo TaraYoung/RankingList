@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private int [] colorButtons = {R.id.buttonRed, R.id.buttonYellow, R.id.buttonGreen};
-    private String element;
+    private String text = R.id.editText;
+    private String date= R.id.editText2;
     private ArrayList<String> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +68,18 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v)
         {
-            if(colorButtons.equals(buttonRed) && text != "") {
+            if(text != "" && date !="") {
 
-            list.add(text);
+            list.add(text + " " + date);
+
+            for(String item : list)
+            {
+                System.out.println(item);
             }
+
+            }
+
+
 
 
         }
