@@ -9,21 +9,48 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     private int [] colorButtons = {R.id.buttonRed, R.id.buttonYellow, R.id.buttonGreen};
-    private String text = R.id.editText;
-    private String date= R.id.editText2;
     private ArrayList<String> list = new ArrayList<>();
+    String item ;
+    String date;
+    TextView listView;
+    private void updateScreenTextView()
+    {
+//        listView.equals(list);
+//        for(String things: list)
+//        {
+//            System.out.println(things);
+//        }
+        /// [ hello, world]
+        // "hello\nworld\n"
+        String txt = "";
+        for (String ele: list) {
+            txt += ele;
+            txt += "\n";
+        }
+        
+        listView.setText(txt);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        item = ((EditText)findViewById(R.id.editText)).getText().toString();
+        date = ((EditText)findViewById(R.id.editText2)).getText().toString();
+        listView = (TextView) findViewById(R.id.textView);
+        //updateScreenTextView();
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -68,22 +95,33 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v)
         {
-            if(text != "" && date !="") {
+           // TextView textView = (TextView) findViewById(R.id.textView);
+            item = ((EditText)findViewById(R.id.editText)).getText().toString();
+            date = ((EditText)findViewById(R.id.editText2)).getText().toString();
 
-            list.add(text + " " + date);
+            if(v.getId() == R.id.buttonRed && item != "") {
+                list.add(item + "\t " + date);
+                System.out.println("inside of the if statment");
+                updateScreenTextView();
 
-            for(String item : list)
-            {
-                System.out.println(item);
             }
 
+            else if(v.getId() == R.id.buttonYellow && item != "") {
+                list.add(item + "\t " + date);
+
+                updateScreenTextView();
             }
 
+            else if(v.getId() == R.id.buttonGreen && item != "") {
+                list.add(item + "\t " + date);
 
-
+                updateScreenTextView();
+            }
 
         }
 
     }
+
+
 }
 
