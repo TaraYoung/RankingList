@@ -24,13 +24,6 @@ public class MainActivity extends AppCompatActivity {
     TextView listView;
     private void updateScreenTextView()
     {
-//        listView.equals(list);
-//        for(String things: list)
-//        {
-//            System.out.println(things);
-//        }
-        /// [ hello, world]
-        // "hello\nworld\n"
         String txt = "\t";
         for (String ele: list) {
             txt += ele;
