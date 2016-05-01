@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 //        }
         /// [ hello, world]
         // "hello\nworld\n"
-        String txt = "";
+        String txt = "\t";
         for (String ele: list) {
             txt += ele;
-            txt += "\n";
+            txt += "\n\t";
         }
-        
+
         listView.setText(txt);
     }
 
@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         item = ((EditText)findViewById(R.id.editText)).getText().toString();
         date = ((EditText)findViewById(R.id.editText2)).getText().toString();
         listView = (TextView) findViewById(R.id.textView);
-        //updateScreenTextView();
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -95,25 +94,24 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v)
         {
-           // TextView textView = (TextView) findViewById(R.id.textView);
+           // update what is in text fields
             item = ((EditText)findViewById(R.id.editText)).getText().toString();
             date = ((EditText)findViewById(R.id.editText2)).getText().toString();
 
             if(v.getId() == R.id.buttonRed && item != "") {
-                list.add(item + "\t " + date);
-                System.out.println("inside of the if statment");
+                list.add(item + "\t " + date + "\t\tSuper Important!");
                 updateScreenTextView();
 
             }
 
             else if(v.getId() == R.id.buttonYellow && item != "") {
-                list.add(item + "\t " + date);
+                list.add(item + "\t " + date + "\t\tDo it soon.");
 
                 updateScreenTextView();
             }
 
             else if(v.getId() == R.id.buttonGreen && item != "") {
-                list.add(item + "\t " + date);
+                list.add(item + "\t " + date + "\t\tTake your time.");
 
                 updateScreenTextView();
             }
